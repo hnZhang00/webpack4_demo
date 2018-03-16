@@ -1,18 +1,16 @@
+const config = require('../config');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
 	mode: 'development',
 	entry: [
 		// 'webpack-hot-middleware/client',
 		'./dev-client.js',
-		'./src/main.js'
+		'../src/main.js'
 	],
 	output: {
 		filename: 'app.js',
-		path: path.resolve(__dirname, 'dist'),
+		path: config.build.assetsRoot,
 		publicPath: '/'
 	},
 	module: {
@@ -45,18 +43,5 @@ module.exports = {
 				]
 			}
 		]
-	},
-	plugins: [
-		// new CleanWebpackPlugin(['dist']),
-		new HtmlWebpackPlugin({
-			title: 'Output Management'
-		}),
-		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin()
-	],
-	devtool: 'eval-source-map',
-	devServer: {
-		contentBase: './dist',
-		hot: true
 	}
 }

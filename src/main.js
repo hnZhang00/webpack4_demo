@@ -16,3 +16,4 @@ function image() {
 
 document.body.appendChild(component());
 document.body.appendChild(image());
+console.log('hslf')
